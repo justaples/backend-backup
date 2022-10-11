@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 const commentSchema = new Schema({
     content: String,
@@ -16,6 +17,8 @@ const postSchema = new mongoose.Schema({
     timestamps: true
 })
 
-const BlogPost = mongoose.model('Post', postSchema)
+// const BlogPost = mongoose.model('Post', postSchema)
 
-module.exports = BlogPost
+// module.exports = BlogPost
+
+module.exports = mongoose.model("Post", postSchema)
