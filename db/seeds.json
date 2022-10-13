@@ -4,5 +4,11 @@
         "title": "First post",
         "content": "This is the first post on my blog",
         "comments": [{"content":"Cool post!"}]
+    },
+    {
+        "img": "https://ih1.redbubble.net/image.879888902.3129/pp,840x830-pad,1000x1000,f8f8f8.jpg",
+        "title": "Second post",
+        "content": "This is the second post on my blog",
+        "comments": [{"content":"Cool 2nd post!"}]
     }
 ]
