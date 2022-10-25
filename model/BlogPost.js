@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+// const Schema = mongoose.Schema
 
-const commentSchema = new Schema({
+const commentSchema = new mongoose.Schema({
     content: String,
 },{
     timestamps: true
@@ -9,16 +9,16 @@ const commentSchema = new Schema({
 
 
 const postSchema = new mongoose.Schema({
-    img: String,
+    picture: String,
     title: String,
     content: String,
-    comments: [commentSchema]
+    // comments: [commentSchema]
 },{
     timestamps: true
 })
 
-// const BlogPost = mongoose.model('Post', postSchema)
+const BlogPost = mongoose.model('BlogPost', postSchema)
 
-// module.exports = BlogPost
+module.exports = BlogPost
 
-module.exports = mongoose.model("Post", postSchema)
+// module.exports = mongoose.model("Post", postSchema)

@@ -1,8 +1,7 @@
-const Post = require('../model/BlogPost')
-const { post } = require('../routes/postRoutes')
+const BlogPost = require('../model/BlogPost')
 
 const index = (req,res) =>{
-    Post.find({}, (err, posts) =>{
+    BlogPost.find({}, (err, posts) =>{
         if(err){
             res.status(400).json(err)
             return
@@ -12,7 +11,7 @@ const index = (req,res) =>{
 }
 
 const getOnePost = (req,res) =>{
-    Post.findById(req.params.id, (err, post) =>{
+    BlogPost.findById(req.params.id, (err, post) =>{
         if(err){
             res.status(400).json(err)
             return
@@ -21,7 +20,16 @@ const getOnePost = (req,res) =>{
     })
 }
 
+const createPost = async (req, res) =>{
+    console.log(req.body)
+        let newPost = await BlogPost.create(req.body)
+        // newPost.save(() => console.log("post saved"))
+        console.log(newPost)
+        res.json(newPost)
+}
+
 module.exports = {
     index,
     getOnePost,
+    createPost
 }
