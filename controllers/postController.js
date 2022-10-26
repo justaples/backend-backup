@@ -28,8 +28,21 @@ const createPost = async (req, res) =>{
         res.json(newPost)
 }
 
+const updatePost = (req,res) =>{
+    BlogPost.findByIdAndUpdate(req.params.id, req.body, (err, post) => {
+        if(err){
+            res.status(400).json(err)
+            return
+        }
+        BlogPost.find({}, (error, posts) =>{
+            res.json(posts)
+        })
+    })
+}
+
 module.exports = {
     index,
     getOnePost,
-    createPost
+    createPost,
+    updatePost
 }
