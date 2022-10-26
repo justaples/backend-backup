@@ -40,9 +40,20 @@ const updatePost = (req,res) =>{
     })
 }
 
+const deletePost = (req, res) =>{
+    BlogPost.findByIdAndDelete(req.params.id, (err, post) =>{
+        if(err){
+            res.status(400).json(err)
+            return
+        }
+        res.json(post)
+    })
+}
+
 module.exports = {
     index,
     getOnePost,
     createPost,
-    updatePost
+    updatePost,
+    deletePost
 }
